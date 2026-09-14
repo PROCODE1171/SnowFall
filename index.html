@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SNOWFALL is your free Minecraft resource hub for mods, resource packs, launchers, macros, and gaming performance tools." />
+  <meta name="theme-color" content="#050811" />
+  <title>SNOWFALL | Free Minecraft Resource Hub</title>
+
+  <!-- Google Fonts: Outfit & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Canvas Snowfall Layer -->
+  <canvas id="snow-canvas"></canvas>
+
+  <!-- ==========================================
+       NAVIGATION BAR
+       ========================================== -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <!-- Logo / Brand -->
+      <a href="#home" class="brand" data-route="home">
+        <span class="brand-icon">❄</span>
+        <span class="brand-text">SNOWFALL</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active" data-route="home">HOME</a></li>
+          <li><a href="#mods" class="nav-link" data-route="mods">MODS</a></li>
+          <li><a href="#resource-packs" class="nav-link" data-route="resource-packs">RESOURCE PACKS</a></li>
+          <li><a href="#launchers" class="nav-link" data-route="launchers">LAUNCHERS</a></li>
+          <li><a href="#macros" class="nav-link" data-route="macros">MACROS</a></li>
+          <li><a href="#hack-clients" class="nav-link" data-route="hack-clients">HACK CLIENTS</a></li>
+          <li><a href="#rules" class="nav-link" data-route="rules">RULES</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Search, Snow Toggle, Discord, Mobile Toggle) -->
+      <div class="nav-actions">
+        <!-- Quick Search Button -->
+        <button id="nav-search-btn" class="nav-search-btn" title="Quick Search">
+          <span>🔍</span>
+          <span>Search</span>
+          <kbd>Ctrl K</kbd>
+        </button>
+
+        <!-- Snow Particle Toggle -->
+        <button id="snow-toggle" class="snow-toggle-btn" title="Toggle Snowfall Animation">
+          ❄
+        </button>
+
+        <!-- Discord Button -->
+        <a href="https://discord.gg/qdCp4sgwKD" target="_blank" rel="noopener noreferrer" class="btn btn-discord btn-sm">
+          JOIN DISCORD ↗
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle navigation menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-nav-link active" data-route="home">❄ HOME</a></li>
+      <li><a href="#mods" class="mobile-nav-link" data-route="mods">🧩 MODS</a></li>
+      <li><a href="#resource-packs" class="mobile-nav-link" data-route="resource-packs">🎨 RESOURCE PACKS</a></li>
+      <li><a href="#launchers" class="mobile-nav-link" data-route="launchers">🚀 LAUNCHERS</a></li>
+      <li><a href="#macros" class="mobile-nav-link" data-route="macros">⌨ MACROS</a></li>
+      <li><a href="#hack-clients" class="mobile-nav-link" data-route="hack-clients">⚡ HACK CLIENTS</a></li>
+      <li><a href="#rules" class="mobile-nav-link" data-route="rules">📜 RULES</a></li>
+    </ul>
+    <div style="margin-top:auto; padding-top:16px;">
+      <a href="https://discord.gg/qdCp4sgwKD" target="_blank" rel="noopener noreferrer" class="btn btn-discord" style="width:100%;">
+        JOIN DISCORD ↗
+      </a>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MAIN VIEWS CONTAINER
+       ========================================== -->
+  <main>
+    <!-- ==========================================
+         VIEW: HOME
+         ========================================== -->
+    <div id="view-home" class="app-view">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-badge">
+            <span class="hero-badge-pulse"></span>
+            <span>❄ NEXT-GEN MINECRAFT HUB • 100% FREE</span>
+          </div>
+          <h1 class="hero-title">SNOWFALL</h1>
+          <h2 class="hero-subtitle">Your Free Minecraft Resource Hub</h2>
+          <p class="hero-description">
+            Discover free Minecraft mods, resource packs, launchers, performance tools, settings, and more — all in one place.
+          </p>
+          <div class="hero-actions">
+            <button id="hero-explore-btn" class="btn btn-primary">
+              EXPLORE RESOURCES ❄
+            </button>
+            <a href="https://discord.gg/qdCp4sgwKD" target="_blank" rel="noopener noreferrer" class="btn btn-discord">
+              JOIN DISCORD ↗
+            </a>
+          </div>
+
+          <!-- Stats Counters -->
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stat-value">50+</div>
+              <div class="stat-label">Curated Tools</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">100%</div>
+              <div class="stat-label">Free & Safe</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">1.21+</div>
+              <div class="stat-label">Ready & Tested</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">0ms</div>
+              <div class="stat-label">Lag & Ad-Free</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Overview Section -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="section-tag">❄ NAVIGATION</span>
+            <h2 class="section-title">Resource Categories</h2>
+            <p class="section-subtitle">Jump straight into our high-speed Minecraft resource directories.</p>
+          </div>
+
+          <div class="categories-grid">
+            <!-- Mods -->
+            <a href="#mods" class="category-card" data-target="mods">
+              <div class="cat-icon-wrap">❄</div>
+              <h3 class="cat-name">MODS</h3>
+              <p class="cat-desc">Improve and customize your Minecraft experience with top rendering and performance engines.</p>
+              <span class="cat-explore-link">Browse Mods →</span>
+            </a>
+
+            <!-- Resource Packs -->
+            <a href="#resource-packs" class="category-card" data-target="resource-packs">
+              <div class="cat-icon-wrap">🎨</div>
+              <h3 class="cat-name">RESOURCE PACKS</h3>
+              <p class="cat-desc">Find PvP, FPS, UI and visual resource packs crafted for crisp graphics and smooth FPS.</p>
+              <span class="cat-explore-link">Browse Packs →</span>
+            </a>
+
+            <!-- Launchers -->
+            <a href="#launchers" class="category-card" data-target="launchers">
+              <div class="cat-icon-wrap">🚀</div>
+              <h3 class="cat-name">LAUNCHERS</h3>
+              <p class="cat-desc">Discover Minecraft launchers and client tools for lightning-fast multi-instance modding.</p>
+              <span class="cat-explore-link">Browse Launchers →</span>
+            </a>
+
+            <!-- Macros -->
+            <a href="#macros" class="category-card" data-target="macros">
+              <div class="cat-icon-wrap">⌨</div>
+              <h3 class="cat-name">MACROS</h3>
+              <p class="cat-desc">Useful automation and productivity tools for chat shortcuts, ergonomic farming, and pathfinding.</p>
+              <span class="cat-explore-link">Browse Macros →</span>
+            </a>
+
+            <!-- Hack Clients -->
+            <a href="#hack-clients" class="category-card" data-target="hack-clients">
+              <div class="cat-icon-wrap">⚡</div>
+              <h3 class="cat-name">HACK CLIENTS</h3>
+              <p class="cat-desc">Information about Minecraft clients and related tools. Strictly verified safe & official sources.</p>
+              <span class="cat-explore-link">View Safe Directory →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Resources Section -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">★ HANDPICKED EXCELLENCE</span>
+            <h2 class="section-title">Featured Resources</h2>
+            <p class="section-subtitle">Top verified community essentials delivering maximum performance and enjoyment.</p>
+          </div>
+          <div id="home-featured-grid" class="resource-grid"></div>
+        </div>
+      </section>
+
+      <!-- Latest Resources Section -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">🕒 RECENT ADDITIONS</span>
+            <h2 class="section-title">Latest Resources</h2>
+            <p class="section-subtitle">Freshly tested tools and mods updated for the latest Minecraft releases.</p>
+          </div>
+          <div id="home-latest-grid" class="resource-grid"></div>
+        </div>
+      </section>
+
+      <!-- Discord Community Section -->
+      <section class="section">
+        <div class="container">
+          <div class="community-card">
+            <div class="community-content">
+              <h3>JOIN THE SNOWFALL COMMUNITY</h3>
+              <p>Get updates, support, resource announcements and chat with other Minecraft players.</p>
+            </div>
+            <div class="community-actions">
+              <a href="https://discord.gg/qdCp4sgwKD" target="_blank" rel="noopener noreferrer" class="btn btn-discord" style="padding: 16px 32px; font-size: 1.05rem;">
+                JOIN DISCORD ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW: MODS
+         ========================================== -->
+    <div id="view-mods" class="app-view" style="display:none;">
+      <section class="section" style="padding-top: calc(var(--nav-height) + 40px);">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">❄ OPTIMIZATION & ENHANCEMENTS</span>
+            <h1 class="section-title">Minecraft Mods</h1>
+            <p class="section-subtitle">Improve and customize your Minecraft experience with modern performance engines and utilities.</p>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="search-filter-section">
+            <div class="search-bar-row">
+              <div class="search-input-wrapper">
+                <span class="search-icon-inside">🔍</span>
+                <input type="text" id="mods-search" class="search-input" placeholder="Search mods (e.g. Sodium, Iris, FerriteCore)..." />
+                <button class="clear-search-btn" title="Clear search">✕</button>
+              </div>
+              <div class="sort-select-wrapper">
+                <select id="mods-sort" class="sort-select">
+                  <option value="featured">Featured First</option>
+                  <option value="name-asc">Name (A — Z)</option>
+                  <option value="newest">Newest Added</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter-pills" id="mods-pills">
+              <button class="filter-pill active" data-filter="all">All Mods</button>
+              <button class="filter-pill" data-filter="Performance">Performance</button>
+              <button class="filter-pill" data-filter="FPS">FPS Boost</button>
+              <button class="filter-pill" data-filter="Shaders">Shaders</button>
+              <button class="filter-pill" data-filter="Utility">Utility</button>
+              <button class="filter-pill" data-filter="Fabric">Fabric</button>
+            </div>
+          </div>
+
+          <div class="search-results-meta">
+            <span id="mods-count" class="results-count">Loading mods...</span>
+          </div>
+
+          <!-- Cards Grid -->
+          <div id="mods-grid" class="resource-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW: RESOURCE PACKS
+         ========================================== -->
+    <div id="view-resource-packs" class="app-view" style="display:none;">
+      <section class="section" style="padding-top: calc(var(--nav-height) + 40px);">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">🎨 TEXTURES & VISUALS</span>
+            <h1 class="section-title">Resource Packs</h1>
+            <p class="section-subtitle">Find PvP, FPS, UI and visual resource packs engineered for high frame rates and clean gameplay.</p>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="search-filter-section">
+            <div class="search-bar-row">
+              <div class="search-input-wrapper">
+                <span class="search-icon-inside">🔍</span>
+                <input type="text" id="resource-packs-search" class="search-input" placeholder="Search resource packs (e.g. Faithful, Bare Bones, PvP)..." />
+                <button class="clear-search-btn" title="Clear search">✕</button>
+              </div>
+              <div class="sort-select-wrapper">
+                <select id="resource-packs-sort" class="sort-select">
+                  <option value="featured">Featured First</option>
+                  <option value="name-asc">Name (A — Z)</option>
+                  <option value="newest">Newest Added</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter-pills" id="resource-packs-pills">
+              <button class="filter-pill active" data-filter="all">All Packs</button>
+              <button class="filter-pill" data-filter="PvP">PvP</button>
+              <button class="filter-pill" data-filter="FPS">FPS Boost</button>
+              <button class="filter-pill" data-filter="Survival">Survival</button>
+              <button class="filter-pill" data-filter="UI">Dark UI</button>
+              <button class="filter-pill" data-filter="Utility">Utility</button>
+              <button class="filter-pill" data-filter="16x">16x Resolution</button>
+              <button class="filter-pill" data-filter="32x">32x Resolution</button>
+            </div>
+          </div>
+
+          <div class="search-results-meta">
+            <span id="resource-packs-count" class="results-count">Loading packs...</span>
+          </div>
+
+          <!-- Cards Grid -->
+          <div id="resource-packs-grid" class="resource-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW: LAUNCHERS
+         ========================================== -->
+    <div id="view-launchers" class="app-view" style="display:none;">
+      <section class="section" style="padding-top: calc(var(--nav-height) + 40px);">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">🚀 CLIENTS & LAUNCHERS</span>
+            <h1 class="section-title">Minecraft Launchers</h1>
+            <p class="section-subtitle">Discover Minecraft launchers and client tools built for multi-instance management and peak performance.</p>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="search-filter-section">
+            <div class="search-bar-row">
+              <div class="search-input-wrapper">
+                <span class="search-icon-inside">🔍</span>
+                <input type="text" id="launchers-search" class="search-input" placeholder="Search launchers (e.g. Prism, Fast Client, Modrinth)..." />
+                <button class="clear-search-btn" title="Clear search">✕</button>
+              </div>
+              <div class="sort-select-wrapper">
+                <select id="launchers-sort" class="sort-select">
+                  <option value="featured">Featured First</option>
+                  <option value="name-asc">Name (A — Z)</option>
+                  <option value="newest">Newest Added</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter-pills" id="launchers-pills">
+              <button class="filter-pill active" data-filter="all">All Launchers</button>
+              <button class="filter-pill" data-filter="Performance">Performance</button>
+              <button class="filter-pill" data-filter="Open Source">Open Source</button>
+              <button class="filter-pill" data-filter="PvP">PvP Clients</button>
+              <button class="filter-pill" data-filter="Windows">Windows</button>
+            </div>
+          </div>
+
+          <div class="search-results-meta">
+            <span id="launchers-count" class="results-count">Loading launchers...</span>
+          </div>
+
+          <!-- Cards Grid -->
+          <div id="launchers-grid" class="resource-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW: MACROS
+         ========================================== -->
+    <div id="view-macros" class="app-view" style="display:none;">
+      <section class="section" style="padding-top: calc(var(--nav-height) + 40px);">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">⌨ PRODUCTIVITY & AUTOMATION</span>
+            <h1 class="section-title">Macros & Utilities</h1>
+            <p class="section-subtitle">Useful automation, accessibility, and productivity tools. Safe, clean, and non-malicious.</p>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="search-filter-section">
+            <div class="search-bar-row">
+              <div class="search-input-wrapper">
+                <span class="search-icon-inside">🔍</span>
+                <input type="text" id="macros-search" class="search-input" placeholder="Search macros (e.g. AHK, Baritone, Auto Clicker)..." />
+                <button class="clear-search-btn" title="Clear search">✕</button>
+              </div>
+              <div class="sort-select-wrapper">
+                <select id="macros-sort" class="sort-select">
+                  <option value="featured">Featured First</option>
+                  <option value="name-asc">Name (A — Z)</option>
+                  <option value="newest">Newest Added</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter-pills" id="macros-pills">
+              <button class="filter-pill active" data-filter="all">All Utilities</button>
+              <button class="filter-pill" data-filter="Automation">Automation</button>
+              <button class="filter-pill" data-filter="Utility">Utility</button>
+              <button class="filter-pill" data-filter="Productivity">Productivity</button>
+              <button class="filter-pill" data-filter="Open Source">Open Source</button>
+            </div>
+          </div>
+
+          <div class="search-results-meta">
+            <span id="macros-count" class="results-count">Loading utilities...</span>
+          </div>
+
+          <!-- Cards Grid -->
+          <div id="macros-grid" class="resource-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW: HACK CLIENTS (Informational & Safe)
+         ========================================== -->
+    <div id="view-hack-clients" class="app-view" style="display:none;">
+      <section class="section" style="padding-top: calc(var(--nav-height) + 40px);">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">⚡ CLIENT DIRECTORY</span>
+            <h1 class="section-title">Hack Clients</h1>
+            <p class="section-subtitle">Information about Minecraft clients and related tools. Strictly educational and official links.</p>
+          </div>
+
+          <!-- Mandatory Safety Banner -->
+          <div class="safety-banner">
+            <div class="safety-banner-icon">🛡</div>
+            <div class="safety-banner-content">
+              <h4>Safety & Official Verification Notice</h4>
+              <p>Only use software you trust and verify downloads through official sources. Snowfall does not distribute malware, account stealers, or tools intended to bypass security systems.</p>
+            </div>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="search-filter-section">
+            <div class="search-bar-row">
+              <div class="search-input-wrapper">
+                <span class="search-icon-inside">🔍</span>
+                <input type="text" id="hack-clients-search" class="search-input" placeholder="Search clients (e.g. Meteor, LiquidBounce, Wurst)..." />
+                <button class="clear-search-btn" title="Clear search">✕</button>
+              </div>
+              <div class="sort-select-wrapper">
+                <select id="hack-clients-sort" class="sort-select">
+                  <option value="featured">Featured First</option>
+                  <option value="name-asc">Name (A — Z)</option>
+                  <option value="newest">Newest Added</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter-pills" id="hack-clients-pills">
+              <button class="filter-pill active" data-filter="all">All Clients</button>
+              <button class="filter-pill" data-filter="Fabric">Fabric</button>
+              <button class="filter-pill" data-filter="Open Source">Open Source</button>
+              <button class="filter-pill" data-filter="Anarchy">Anarchy</button>
+            </div>
+          </div>
+
+          <div class="search-results-meta">
+            <span id="hack-clients-count" class="results-count">Loading clients...</span>
+          </div>
+
+          <!-- Cards Grid -->
+          <div id="hack-clients-grid" class="resource-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW: RULES
+         ========================================== -->
+    <div id="view-rules" class="app-view" style="display:none;">
+      <section class="section" style="padding-top: calc(var(--nav-height) + 40px);">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="section-tag">📜 COMMUNITY GUIDELINES</span>
+            <h1 class="section-title">SNOWFALL RULES</h1>
+            <p class="section-subtitle">Please read and respect the community standards that keep Snowfall safe, welcoming, and high quality.</p>
+          </div>
+
+          <!-- 15 Rules Cards Grid -->
+          <div class="rules-grid">
+            <div class="rule-card">
+              <div class="rule-num">01</div>
+              <div class="rule-info">
+                <h3>RESPECT</h3>
+                <p>Treat everyone with respect. No harassment, bullying or personal attacks.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">02</div>
+              <div class="rule-info">
+                <h3>NO HATE</h3>
+                <p>No racism, slurs, hate speech or discrimination.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">03</div>
+              <div class="rule-info">
+                <h3>NO NSFW</h3>
+                <p>Keep Snowfall appropriate for everyone.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">04</div>
+              <div class="rule-info">
+                <h3>NO SPAM</h3>
+                <p>Don't flood chats with messages, mentions or links.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">05</div>
+              <div class="rule-info">
+                <h3>NO ADVERTISING</h3>
+                <p>No advertising without permission.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">06</div>
+              <div class="rule-info">
+                <h3>NO SCAMS</h3>
+                <p>No scams, phishing, fake giveaways or malicious links.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">07</div>
+              <div class="rule-info">
+                <h3>NO MALWARE</h3>
+                <p>No viruses, malware, stealers or harmful files.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">08</div>
+              <div class="rule-info">
+                <h3>PRIVACY</h3>
+                <p>Respect everyone's personal information.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">09</div>
+              <div class="rule-info">
+                <h3>NO IMPERSONATION</h3>
+                <p>Don't impersonate staff, creators or other members.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">10</div>
+              <div class="rule-info">
+                <h3>NO RAIDING</h3>
+                <p>No raids, mass mentions or server disruption.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">11</div>
+              <div class="rule-info">
+                <h3>STAY ON TOPIC</h3>
+                <p>Use channels for their intended purpose.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">12</div>
+              <div class="rule-info">
+                <h3>FOLLOW STAFF</h3>
+                <p>Respect staff instructions and moderation decisions.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">13</div>
+              <div class="rule-info">
+                <h3>NO EXPLOITS</h3>
+                <p>Don't abuse bugs, permissions or server systems.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">14</div>
+              <div class="rule-info">
+                <h3>RESOURCE SAFETY</h3>
+                <p>Only use trusted Snowfall resources and links. Report suspicious files or links to staff.</p>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-num">15</div>
+              <div class="rule-info">
+                <h3>COMMON SENSE</h3>
+                <p>Use common sense and help keep Snowfall friendly.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Agreement Banner -->
+          <div class="rules-agreement-banner">
+            <h4>Ready to explore responsibly?</h4>
+            <p>By using Snowfall, you agree to follow these rules and applicable platform guidelines.</p>
+            <a href="https://discord.gg/qdCp4sgwKD" target="_blank" rel="noopener noreferrer" class="btn btn-discord">
+              JOIN OUR DISCORD COMMUNITY ↗
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ==========================================
+       RESOURCE DETAILS MODAL
+       ========================================== -->
+  <div id="resource-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-container">
+      <button id="modal-close-btn" class="modal-close-btn" aria-label="Close modal">✕</button>
+      
+      <div class="modal-banner">
+        <img id="modal-img" src="" alt="Resource banner" class="modal-image" />
+        <div class="modal-banner-overlay"></div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h2 id="modal-title" class="modal-title">Resource Name</h2>
+          <div id="modal-tags" class="card-tags" style="margin-bottom:0;"></div>
+        </div>
+        <div id="modal-author" class="modal-author">by Author</div>
+        <p id="modal-desc" class="modal-desc">Detailed resource description.</p>
+
+        <!-- Specs Grid -->
+        <div id="modal-specs" class="modal-specs-grid"></div>
+
+        <!-- Modal Actions -->
+        <div class="modal-actions">
+          <a id="modal-btn-official" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            OFFICIAL WEBSITE ↗
+          </a>
+          <a id="modal-btn-download" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            DOWNLOAD RESOURCE ↗
+          </a>
+          <button id="modal-btn-copy" class="btn btn-secondary" style="margin-left:auto;">
+            🔗 COPY LINK
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h2><span>❄</span> SNOWFALL</h2>
+          <p>Your Free Minecraft Resource Hub. Discover performance mods, texture packs, custom launchers, and essential gaming utilities.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home" class="footer-link" data-route="home">Home</a></li>
+            <li><a href="#mods" class="footer-link" data-route="mods">Mods</a></li>
+            <li><a href="#resource-packs" class="footer-link" data-route="resource-packs">Resource Packs</a></li>
+            <li><a href="#launchers" class="footer-link" data-route="launchers">Launchers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="#macros" class="footer-link" data-route="macros">Macros & Tools</a></li>
+            <li><a href="#hack-clients" class="footer-link" data-route="hack-clients">Hack Clients</a></li>
+            <li><a href="#rules" class="footer-link" data-route="rules">Community Rules</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Community</h4>
+          <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:14px;">
+            Join our active community on Discord to receive real-time updates and support.
+          </p>
+          <a href="https://discord.gg/qdCp4sgwKD" target="_blank" rel="noopener noreferrer" class="btn btn-discord btn-sm">
+            JOIN DISCORD ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Snowfall. All rights reserved.</div>
+        <div class="footer-disclaimer">
+          Snowfall is an independent community/resource hub and is not affiliated with Mojang or Microsoft.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/snow.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
